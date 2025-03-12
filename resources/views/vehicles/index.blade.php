@@ -9,8 +9,8 @@
             <tr>
                 <th>Modelo</th>
                 <th>Ano</th>
-                <th>Data de Aquisição</th>
-                <th>KMs Rodados</th>
+                <th>Data_Aquisição</th>
+                <th>KMs_Rodados</th>
                 <th>Renavam</th>
                 <th>Placa</th>
                 <th>Ações</th>

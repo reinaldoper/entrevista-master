@@ -9,8 +9,8 @@
         <div class="card-body">
             <p><strong>Modelo:</strong> {{ $vehicle->model }}</p>
             <p><strong>Ano:</strong> {{ $vehicle->year }}</p>
-            <p><strong>Data de Aquisição:</strong> {{ $vehicle->acquisition_date }}</p>
-            <p><strong>KMs Rodados:</strong> {{ $vehicle->km_acquisition }}</p>
+            <p><strong>Data_Aquisição:</strong> {{ $vehicle->acquisition_date }}</p>
+            <p><strong>KMs_Rodados:</strong> {{ $vehicle->km_acquisition }}</p>
             <p><strong>Renavam:</strong> {{ $vehicle->renavam }}</p>
             <p><strong>Placa:</strong> {{ $vehicle->plate }}</p>
             <a href="{{ route('vehicles.edit', $vehicle->id) }}" class="btn btn-primary">Editar</a>

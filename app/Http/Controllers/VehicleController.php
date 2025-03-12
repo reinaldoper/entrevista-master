@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Vehicle;
 use Illuminate\Http\Request;
+use Exception;
 
 class VehicleController extends Controller
 {
@@ -29,8 +30,12 @@ class VehicleController extends Controller
             'plate' => 'required|unique:vehicles',
         ]);
 
-        Vehicle::create($request->all());
-        return redirect()->route('vehicles.index')->with('success', 'Veículo criado com sucesso.');
+        try {
+            Vehicle::create($request->all());
+            return redirect()->route('vehicles.index')->with('success', 'Veículo criado com sucesso.');
+        } catch (Exception $e) {
+            return redirect()->back()->withInput()->with('error', 'Erro ao criar veículo. Por favor, tente novamente.');
+        }
     }
 
     public function show(Vehicle $vehicle)
@@ -54,13 +59,21 @@ class VehicleController extends Controller
             'plate' => 'required|unique:vehicles,plate,' . $vehicle->id,
         ]);
 
-        $vehicle->update($request->all());
-        return redirect()->route('vehicles.index')->with('success', 'Veículo atualizado com sucesso.');
+        try {
+            $vehicle->update($request->all());
+            return redirect()->route('vehicles.index')->with('success', 'Veículo atualizado com sucesso.');
+        } catch (Exception $e) {
+            return redirect()->back()->withInput()->with('error', 'Erro ao atualizar veículo. Por favor, tente novamente.');
+        }
     }
 
     public function destroy(Vehicle $vehicle)
     {
-        $vehicle->delete();
-        return redirect()->route('vehicles.index')->with('success', 'Veículo deletado com sucesso.');
+        try {
+            $vehicle->delete();
+            return redirect()->route('vehicles.index')->with('success', 'Veículo deletado com sucesso.');
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', 'Erro ao deletar veículo. Por favor, tente novamente.');
+        }
     }
 }

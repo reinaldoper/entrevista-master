@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Driver;
 use Illuminate\Http\Request;
+use Exception;
 
 class DriverController extends Controller
 {
@@ -23,11 +24,15 @@ class DriverController extends Controller
         $request->validate([
             'name' => 'required',
             'birth_date' => 'required|date|before:-18 years',
-            'cnh_number' => 'required|unique:drivers',
+            'cnh_number' => 'required',
         ]);
 
-        Driver::create($request->all());
-        return redirect()->route('drivers.index')->with('success', 'Motorista criado com sucesso.');
+        try {
+            Driver::create($request->all());
+            return redirect()->route('drivers.index')->with('success', 'Motorista criado com sucesso.');
+        } catch (Exception $e) {
+            return redirect()->back()->withInput()->with('error', 'Erro ao criar motorista. Por favor, tente novamente.');
+        }
     }
 
     public function show(Driver $driver)
@@ -45,16 +50,24 @@ class DriverController extends Controller
         $request->validate([
             'name' => 'required',
             'birth_date' => 'required|date|before:-18 years',
-            'cnh_number' => 'required|unique:drivers,cnh_number,' . $driver->id,
+            'cnh_number' => 'required',
         ]);
 
-        $driver->update($request->all());
-        return redirect()->route('drivers.index')->with('success', 'Motorista atualizado com sucesso.');
+        try {
+            $driver->update($request->all());
+            return redirect()->route('drivers.index')->with('success', 'Motorista atualizado com sucesso.');
+        } catch (Exception $e) {
+            return redirect()->back()->withInput()->with('error', 'Erro ao atualizar motorista. Por favor, tente novamente.');
+        }
     }
 
     public function destroy(Driver $driver)
     {
-        $driver->delete();
-        return redirect()->route('drivers.index')->with('success', 'Motorista deletado com sucesso.');
+        try {
+            $driver->delete();
+            return redirect()->route('drivers.index')->with('success', 'Motorista deletado com sucesso.');
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', 'Erro ao deletar motorista. Por favor, tente novamente.');
+        }
     }
 }

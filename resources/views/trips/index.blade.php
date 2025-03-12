@@ -9,10 +9,10 @@
             <tr>
                 <th>Motorista</th>
                 <th>Veículo</th>
-                <th>KM Inicial</th>
-                <th>KM Final</th>
-                <th>Data e Hora de Início</th>
-                <th>Data e Hora de Chegada</th>
+                <th>KM_Inicial</th>
+                <th>KM_Final</th>
+                <th>Data/hora_Início</th>
+                <th>Data/hora_fim</th>
                 <th>Ações</th>
             </tr>
         </thead>

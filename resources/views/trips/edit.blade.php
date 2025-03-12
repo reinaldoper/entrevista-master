@@ -3,6 +3,28 @@
 @section('content')
 <div class="container mt-5">
     <h1>Editar Viagem</h1>
+
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    @if(session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
+
+    @if($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <form action="{{ route('trips.update', $trip->id) }}" method="POST">
         @csrf
         @method('PUT')
@@ -23,19 +45,19 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="km_start">KM Inicial</label>
+            <label for="km_start">KM_Inicial</label>
             <input type="number" class="form-control" id="km_start" name="km_start" value="{{ $trip->km_start }}" required>
         </div>
         <div class="form-group">
-            <label for="km_end">KM Final</label>
+            <label for="km_end">KM_Final</label>
             <input type="number" class="form-control" id="km_end" name="km_end" value="{{ $trip->km_end }}" required>
         </div>
         <div class="form-group">
-            <label for="start_time">Data e Hora de Início</label>
+            <label for="start_time">Data/hora_inicio</label>
             <input type="datetime-local" class="form-control" id="start_time" name="start_time" value="{{ $trip->start_time }}" required>
         </div>
         <div class="form-group">
-            <label for="end_time">Data e Hora de Chegada</label>
+            <label for="end_time">Data/hora_fim</label>
             <input type="datetime-local" class="form-control" id="end_time" name="end_time" value="{{ $trip->end_time }}" required>
         </div>
         <button type="submit" class="btn btn-primary">Salvar</button>
