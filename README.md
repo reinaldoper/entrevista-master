@@ -35,3 +35,64 @@ devem ser documentadas no projeto
   * KM Final do veículo ao finalizar a viagem
   * Data e hora inicial da viagem
   * Data e hora de chegada.
+
+
+## Configuração do Ambiente
+
+### Pré-requisitos
+
+- Docker
+- Docker Compose
+- Composer
+- PHP 8.0+
+- Node.js (opcional, para compilação de assets)
+
+### Passos para Configuração
+
+1. **Clone o repositório:**
+
+   ```bash
+   git clone git@github.com:reinaldoper/entrevista-master.git
+   cd entrevista-master
+   ```
+
+2. Copie o arquivo .env.example para .env e configure as variáveis de ambiente:
+
+   ```bash
+   cp .env.example .env
+   ```
+
+- Edite o arquivo .env conforme necessário, especialmente as configurações do banco de dados.
+
+
+3. Suba os contêineres Docker:
+
+   ```bash
+   docker-compose up -d
+   ```
+
+4. Instale as dependências do Composer:
+
+   ```bash
+   composer install
+   ```
+
+5. Gere a chave da aplicação:
+
+   ```bash
+   php artisan key:generate
+   ```
+
+6. Execute as migrações:
+
+   ```bash
+   php artisan migrate 
+   ```
+
+7. Inicie o servidor de desenvolvimento:
+
+   ```bash
+   php artisan serve
+   ```
+
+- O servidor estará disponível em http://localhost:8000.
