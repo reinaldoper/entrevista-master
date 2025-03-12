@@ -35,18 +35,8 @@
             <input type="date" class="form-control" id="birth_date" name="birth_date" required>
         </div>
         <div class="form-group">
-            <label for="cnh_number">CNH</label>
-            <select class="form-control" id="cnh_number" name="cnh_number" required>
-                <option value="A">A</option>
-                <option value="B">B</option>
-                <option value="C">C</option>
-                <option value="D">D</option>
-                <option value="E">E</option>
-                <option value="AB">AB</option>
-                <option value="AC">AC</option>
-                <option value="AD">AD</option>
-                <option value="AE">AE</option>
-            </select>
+            <label for="cnh_number">N°_CNH</label>
+            <input type="number" class="form-control" id="cnh_number" name="cnh_number" required>
         </div>
         <button type="submit" class="btn btn-primary">Salvar</button>
     </form>

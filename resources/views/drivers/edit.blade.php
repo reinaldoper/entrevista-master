@@ -36,18 +36,8 @@
             <input type="date" class="form-control" id="birth_date" name="birth_date" value="{{ $driver->birth_date }}" required>
         </div>
         <div class="form-group">
-            <label for="cnh_number">CNH</label>
-            <select class="form-control" id="cnh_number" name="cnh_number" required>
-                <option value="A" {{ $driver->cnh_number == 'A' ? 'selected' : '' }}>A</option>
-                <option value="B" {{ $driver->cnh_number == 'B' ? 'selected' : '' }}>B</option>
-                <option value="C" {{ $driver->cnh_number == 'C' ? 'selected' : '' }}>C</option>
-                <option value="D" {{ $driver->cnh_number == 'D' ? 'selected' : '' }}>D</option>
-                <option value="E" {{ $driver->cnh_number == 'E' ? 'selected' : '' }}>E</option>
-                <option value="AB" {{ $driver->cnh_number == 'AB' ? 'selected' : '' }}>AB</option>
-                <option value="AC" {{ $driver->cnh_number == 'AC' ? 'selected' : '' }}>AC</option>
-                <option value="AD" {{ $driver->cnh_number == 'AD' ? 'selected' : '' }}>AD</option>
-                <option value="AE" {{ $driver->cnh_number == 'AE' ? 'selected' : '' }}>AE</option>
-            </select>
+            <label for="cnh_number">N°_CNH</label>
+            <input type="number" class="form-control" id="cnh_number" name="cnh_number" value="{{ $driver->cnh_number }}" required>
         </div>
         <button type="submit" class="btn btn-primary">Salvar</button>
     </form>

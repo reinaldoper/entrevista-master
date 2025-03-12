@@ -9,7 +9,7 @@
         <div class="card-body">
             <p><strong>Nome:</strong> {{ $driver->name }}</p>
             <p><strong>Data de Nascimento:</strong> {{ $driver->birth_date }}</p>
-            <p><strong>CNH:</strong> {{ $driver->cnh_number }}</p>
+            <p><strong>N°_CNH:</strong> {{ $driver->cnh_number }}</p>
             <a href="{{ route('drivers.edit', $driver->id) }}" class="btn btn-primary">Editar</a>
             <form action="{{ route('drivers.destroy', $driver->id) }}" method="POST" style="display:inline;">
                 @csrf

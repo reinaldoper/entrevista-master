@@ -9,7 +9,7 @@
             <tr>
                 <th>Nome</th>
                 <th>Data de Nascimento</th>
-                <th>CNH</th>
+                <th>N°_CNH</th>
                 <th>Ações</th>
             </tr>
         </thead>

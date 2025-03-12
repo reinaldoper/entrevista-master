@@ -24,7 +24,7 @@ class DriverController extends Controller
         $request->validate([
             'name' => 'required',
             'birth_date' => 'required|date|before:-18 years',
-            'cnh_number' => 'required',
+            'cnh_number' => 'required|digits:9|numeric',
         ]);
 
         try {
@@ -50,7 +50,7 @@ class DriverController extends Controller
         $request->validate([
             'name' => 'required',
             'birth_date' => 'required|date|before:-18 years',
-            'cnh_number' => 'required',
+            'cnh_number' => 'required|digits:9|numeric',
         ]);
 
         try {
