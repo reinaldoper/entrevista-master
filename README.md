@@ -83,13 +83,19 @@ devem ser documentadas no projeto
    php artisan key:generate
    ```
 
-6. Execute as migrações:
+6. Gere a chave secreta
+
+   ```bash
+   php artisan jwt:secret
+   ```
+
+7. Execute as migrações:
 
    ```bash
    php artisan migrate 
    ```
 
-7. Inicie o servidor de desenvolvimento:
+8. Inicie o servidor de desenvolvimento:
 
    ```bash
    php artisan serve
